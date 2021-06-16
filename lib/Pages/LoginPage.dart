@@ -39,11 +39,19 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               Flexible(
                   child: Center(
-                      child: Text(
-                        "ITECSA",
-                        style: TextStyle(
-                            color: color5, fontSize: 60, fontWeight: FontWeight.bold),
-                      ))),
+                    child: Container(
+                      width: size.width*0.8,
+                        child: Image(
+                          image: AssetImage('assets/images/logoItecsa2.png'),
+                        )
+                    ),
+                      // child: Text(
+                      //   "ITECSA",
+                      //   style: TextStyle(
+                      //       color: color5, fontSize: 60, fontWeight: FontWeight.bold),
+                      // )
+
+                  )),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20.0),
                 child: Container(

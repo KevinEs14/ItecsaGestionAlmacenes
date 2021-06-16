@@ -37,7 +37,11 @@ class _MenuPageState extends State<MenuPage> {
               Column(
                 children: [
                   SizedBox(height: size.height*0.1,),
-                  Text("ITECSA",style: TextStyle(fontSize: size.height*0.05,color: color1,fontWeight: FontWeight.bold),),
+                  Container(
+                    width: size.width*0.65,
+                    child: Image(image: AssetImage('assets/images/logoItecsa4.png'),),
+                  ),
+                  // Text("ITECSA",style: TextStyle(fontSize: size.height*0.05,color: color1,fontWeight: FontWeight.bold),),
                   SizedBox(height: size.height*0.15,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,

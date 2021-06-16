@@ -26,7 +26,7 @@ class _ClientesPageState extends State<ClientesPage> {
               child: Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/images/background4.png"),
+                    image: AssetImage("assets/images/background7.png"),
                     fit: BoxFit.cover,
                     colorFilter: ColorFilter.mode(Colors.black12, BlendMode.darken),
                   ),
@@ -59,7 +59,7 @@ class _ClientesPageState extends State<ClientesPage> {
                         ),
                         child: Row(
                           children: [
-                            Icon(Icons.person,color: color1,),
+                            Icon(Icons.person,color: color11,),
                             Container(
                               width: size.width*0.77,
                               child: TextField(
@@ -70,8 +70,9 @@ class _ClientesPageState extends State<ClientesPage> {
                                     border: InputBorder.none
                                 ),
                                 // maxLines: 100,
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: color11),
                                 cursorColor: color2,
+                                textInputAction: TextInputAction.next,
                               ),
                             ),
                           ],
@@ -90,7 +91,7 @@ class _ClientesPageState extends State<ClientesPage> {
                         ),
                         child: Row(
                           children: [
-                            Icon(Icons.home_work,color: color1,),
+                            Icon(Icons.home_work,color: color11,),
                             Container(
                               width: size.width*0.77,
                               child: TextField(
@@ -101,8 +102,9 @@ class _ClientesPageState extends State<ClientesPage> {
                                     border: InputBorder.none
                                 ),
                                 // maxLines: 100,
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: color11),
                                 cursorColor: color2,
+                                textInputAction: TextInputAction.next,
                               ),
                             ),
                           ],
@@ -121,7 +123,7 @@ class _ClientesPageState extends State<ClientesPage> {
                         ),
                         child: Row(
                           children: [
-                            Icon(Icons.map,color: color1,),
+                            Icon(Icons.map,color: color11,),
                             Container(
                               width: size.width*0.77,
                               child: TextField(
@@ -132,8 +134,9 @@ class _ClientesPageState extends State<ClientesPage> {
                                     border: InputBorder.none
                                 ),
                                 // maxLines: 100,
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: color11),
                                 cursorColor: color2,
+                                textInputAction: TextInputAction.next,
                               ),
                             ),
                           ],
@@ -154,7 +157,7 @@ class _ClientesPageState extends State<ClientesPage> {
 
                           // mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Icon(Icons.phone,color: color1,),
+                            Icon(Icons.phone,color: color11,),
                             Container(
                               width: size.width*0.77,
                               child: TextField(
@@ -165,8 +168,9 @@ class _ClientesPageState extends State<ClientesPage> {
                                     border: InputBorder.none
                                 ),
                                 // maxLines: 100,
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: color11),
                                 cursorColor: color2,
+                                textInputAction: TextInputAction.done,
                               ),
                             ),
                           ],
