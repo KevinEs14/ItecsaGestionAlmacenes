@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../Colors.dart';
 class NewProductsPage extends StatefulWidget {
@@ -12,6 +15,21 @@ class _NewProductsPageState extends State<NewProductsPage> {
   TextEditingController _description=TextEditingController();
   TextEditingController _amount=TextEditingController();
   TextEditingController _price=TextEditingController();
+  File _image;
+  final picker = ImagePicker();
+  Future getImage() async {
+    final pickedFile = await picker.getImage(source: ImageSource.camera);
+    // final picture= await ImagePicker.pickImage(source: ImageSource.camera);
+    setState(() {
+      if (pickedFile != null) {
+        _image = File(pickedFile.path);
+      } else {
+        print('No image selected.');
+      }
+      // _image = File(pickedFile.path);
+      // _image=picture;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -50,11 +68,18 @@ class _NewProductsPageState extends State<NewProductsPage> {
                   SizedBox(
                     height: size.width * 0.1,
                   ),
-                  Container(
-                    height: size.width*0.4,
-                    width: size.width*0.4,
-                    color: color3,
-                    child: Icon(Icons.add_photo_alternate_outlined,size: size.width*0.35,),
+                  GestureDetector(
+                    onTap: (){
+                      getImage();
+                      print("tocando");
+                    },
+                    child: Container(
+                      height: size.width*0.4,
+                      width: size.width*0.4,
+                      color: color3,
+                      child: _image!=null?Image.file(_image,fit: BoxFit.fill,):
+                      Icon(Icons.add_photo_alternate_outlined,size: size.width*0.35,),
+                    ),
                   ),
                   SizedBox(height: size.width*0.1,),
                   Container(
