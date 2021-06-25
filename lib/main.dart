@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:itecsa/Bloc/Bloc/LoginBloc.dart';
+import 'package:itecsa/Bloc/Events/LoginEvents.dart';
+import 'package:itecsa/Bloc/Repository/AuthenticationUser.dart';
+import 'package:itecsa/Bloc/States/LoginStates.dart';
 import 'package:itecsa/Pages/LoginPage.dart';
+import 'package:itecsa/Pages/MenuPage.dart';
+
+import 'Pages/LoadingPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,53 +24,21 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LoginPage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+      home: BlocProvider(
+        create: (context)=>LoginBloc(AuthRepository())..add(LoginConfirmedEvent()),
+        child: BlocBuilder<LoginBloc,LoginStates>(
+          builder: (context,state){
+            if(state is LoginConfirmState){
+              return MenuPage();
+            }else if(state is LoginNotConfirmState){
+              return LoginPage();
+            }else {
+              return LoadingPage();
+            }
+          },
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
+

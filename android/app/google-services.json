@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "746247170316",
+    "project_id": "itecsa-904b5",
+    "storage_bucket": "itecsa-904b5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:746247170316:android:ab489c2b28ab6c1ec28129",
+        "android_client_info": {
+          "package_name": "com.example.itecsa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "746247170316-0sic6m6eiuo04e1ktocmb9iq1su563pp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIMZBcvM_VT1YT4k8e7un80BWV-Kp5RtE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "746247170316-0sic6m6eiuo04e1ktocmb9iq1su563pp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

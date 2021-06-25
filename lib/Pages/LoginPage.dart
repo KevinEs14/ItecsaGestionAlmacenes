@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:itecsa/Bloc/Bloc/LoginBloc.dart';
+import 'package:itecsa/Bloc/Events/LoginEvents.dart';
 import 'package:itecsa/Pages/MenuPage.dart';
 
 import '../Colors.dart';
@@ -128,7 +131,9 @@ class _LoginPageState extends State<LoginPage> {
                     borderRadius: BorderRadius.circular(36.0), color: color2),
                 child: FlatButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>MenuPage()));
+                    print("busca entrar");
+                    BlocProvider.of<LoginBloc>(context).add(LoginTryEvent(_username.text,_password.text));
+                    // Navigator.push(context, MaterialPageRoute(builder: (context)=>MenuPage()));
                     // _confirmUser.userName = _username.text;
                     // _confirmUser.password = _password.text;
                     // BlocProvider.of<NavigationBloc>(context)

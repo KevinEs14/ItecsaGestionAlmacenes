@@ -42,13 +42,13 @@ class _ClientesPageState extends State<ClientesPage> {
                 ),
               body: SingleChildScrollView(
                 child: Container(
-                  height: size.height,
+                  height: size.height-MediaQuery.of(context).padding.top,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(
-                        height: size.width * 0.2,
-                      ),
+                      // SizedBox(
+                      //   height: size.width * 0.2,
+                      // ),
                       Container(
                         width: size.width * 0.97,
                         margin: EdgeInsets.only(left: 10,right: 10),
