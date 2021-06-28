@@ -54,8 +54,8 @@ class _ProductsPageState extends State<ProductsPage> {
                         return Center(child: Text(stream.error.toString()));
                       }
                       QuerySnapshot querySnapshot = stream.data;
-                      print("datos del query");
-                      print(querySnapshot.docs[0]["nombre"]);
+                      // print("datos del query");
+                      // print(querySnapshot.docs[0]["nombre"]);
                       return SingleChildScrollView(
                         child: Container(
                           height: size.height,
