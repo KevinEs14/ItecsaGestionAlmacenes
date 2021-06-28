@@ -54,7 +54,8 @@ class _ProductsPageState extends State<ProductsPage> {
                         return Center(child: Text(stream.error.toString()));
                       }
                       QuerySnapshot querySnapshot = stream.data;
-
+                      print("datos del query");
+                      print(querySnapshot.docs[0]["nombre"]);
                       return SingleChildScrollView(
                         child: Container(
                           height: size.height,
@@ -67,7 +68,7 @@ class _ProductsPageState extends State<ProductsPage> {
                                 return Column(
                                   children: [
                                     SizedBox(height: size.height*0.005),
-                                    NewCard(size.width*0.97,size.height*0.2),
+                                    NewCard(size.width*0.97,size.height*0.2,querySnapshot,index),
                                     SizedBox(height: size.height*0.01),
 
                                   ],

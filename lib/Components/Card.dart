@@ -1,11 +1,14 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:itecsa/Colors.dart';
 class NewCard extends StatelessWidget{
   double _width;
   double _height;
+  QuerySnapshot _querySnapshot;
+  int _index;
 
-  NewCard(this._width,this._height);
+  NewCard(this._width,this._height,this._querySnapshot,this._index);
 
   @override
   Widget build(BuildContext context) {
@@ -36,17 +39,17 @@ class NewCard extends StatelessWidget{
                     Container(
                       height: 40,
                       color: color2,
-                      child: AutoSizeText("Esta es una prueba del inicio",textAlign: TextAlign.center,style: TextStyle(color: Colors.black,fontSize: 50),maxLines: 3,minFontSize: 1,maxFontSize: 18),
+                      child: AutoSizeText(_querySnapshot.docs[_index]["nombre"],textAlign: TextAlign.center,style: TextStyle(color: Colors.black,fontSize: 50),maxLines: 3,minFontSize: 1,maxFontSize: 18),
                     ),
                     Container(
                       height: 55,
                       color: color1,
-                      child: AutoSizeText("Esta es una prueba del medo del texto",textAlign: TextAlign.start,style: TextStyle(color: Colors.black,fontSize: 50),maxLines: 3,minFontSize: 1,maxFontSize: 18),
+                      child: AutoSizeText(_querySnapshot.docs[_index]["descripcion"],textAlign: TextAlign.start,style: TextStyle(color: Colors.black,fontSize: 50),maxLines: 3,minFontSize: 1,maxFontSize: 18),
                     ),
                     Container(
                       height: 40,
                       color: color3,
-                      child: AutoSizeText("Esta es una prueba del final del texto",textAlign: TextAlign.start,style: TextStyle(color: Colors.black,fontSize: 50),maxLines: 3,minFontSize: 1,maxFontSize: 18),
+                      child: AutoSizeText(_querySnapshot.docs[_index]["precio"].toString(),textAlign: TextAlign.start,style: TextStyle(color: Colors.black,fontSize: 50),maxLines: 3,minFontSize: 1,maxFontSize: 18),
                     ),
                   ],
                 ),
