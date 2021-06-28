@@ -1,5 +1,3 @@
-
-
 import 'package:equatable/equatable.dart';
 
 abstract class GeneralStates extends Equatable {}
@@ -12,7 +10,7 @@ class ClientsNotConfirmState extends GeneralStates {
   @override
   List<Object> get props => [];
 }
-class PorductosNotConfirmState extends GeneralStates {
+class ProductsNotConfirmState extends GeneralStates {
   @override
   List<Object> get props => [];
 }
@@ -30,4 +28,8 @@ class LoadingPageState extends GeneralStates{
   @override
   List<Object> get props => [];
 
+}
+class ListProductsPageState extends GeneralStates{
+  @override
+  List<Object> get props => [];
 }

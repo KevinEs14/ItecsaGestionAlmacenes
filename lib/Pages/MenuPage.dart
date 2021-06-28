@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:itecsa/Bloc/Bloc/GeneralBloc.dart';
 import 'package:itecsa/Bloc/Bloc/LoginBloc.dart';
+import 'package:itecsa/Bloc/Events/GeneralEvents.dart';
 import 'package:itecsa/Bloc/Events/LoginEvents.dart';
 import 'package:itecsa/Bloc/Repository/AuthenticationUser.dart';
 import 'package:itecsa/Bloc/Repository/ClientsRepository.dart';
@@ -77,8 +78,9 @@ class _MenuPageState extends State<MenuPage> {
                               children: [
                                 GestureDetector(
                                   onTap: () {
-                                    Navigator.push(context, MaterialPageRoute(
-                                        builder: (context) => ProductsPage()));
+                                    BlocProvider.of<GeneralBloc>(context).add(ListProductsEvent());
+                                    // Navigator.push(context, MaterialPageRoute(
+                                    //     builder: (context) => ProductsPage()));
                                   },
                                   child: Container(
                                     height: size.width * 0.3,

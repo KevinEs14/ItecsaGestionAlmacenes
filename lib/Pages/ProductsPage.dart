@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:firebase/firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:itecsa/Components/Card.dart';
@@ -10,6 +12,7 @@ class ProductsPage extends StatefulWidget {
 
 class _ProductsPageState extends State<ProductsPage> {
   List<String> lista=['hola','mundo','esta','es','una','prueba'];
+  Query query = FirebaseFirestore.instance.collection('Productos');
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -34,48 +37,48 @@ class _ProductsPageState extends State<ProductsPage> {
               ),
             ),
             Scaffold(
-              backgroundColor: Colors.transparent,
-              appBar: AppBar(
-                backgroundColor: color2,
-                elevation: 5,
-                title: Text("PRODUCTOS",style: TextStyle(fontSize: size.height*0.025,color: color1),),
-              ),
-              body: SingleChildScrollView(
-                child: Container(
-                  height: size.height,
-                  width: size.width,
-                  padding: EdgeInsets.only(bottom: size.height*0.1),
-                  child: ListView.builder(
-                    //padding: EdgeInsets.only(top: 5,bottom: 20),
-                      itemCount: lista.length,
-                      itemBuilder: (context,index){
-                        return Column(
-                          children: [
-                            SizedBox(height: size.height*0.005),
-                            NewCard(size.width*0.97,size.height*0.2),
-                            SizedBox(height: size.height*0.01),
-
-                          ],
-                        );
-                      }
+                  backgroundColor: Colors.transparent,
+                  appBar: AppBar(
+                    backgroundColor: color2,
+                    elevation: 5,
+                    title: Text("PRODUCTOS",style: TextStyle(fontSize: size.height*0.025,color: color1),),
                   ),
-                  // child: Column(
-                  //   children: [
-                  //     Container(
-                  //       height: size.height,
-                  //       child: ListView.builder(
-                  //         //padding: EdgeInsets.only(top: 5,bottom: 20),
-                  //           itemCount: lista.length,
-                  //           itemBuilder: (context,index){
-                  //             return NewCard(size.width*0.9,size.height*0.2);
-                  //           }
-                  //       ),
-                  //     )
-                  //   ],
-                  // ),
+                  body: StreamBuilder<QuerySnapshot>(
+                    stream: query.snapshots(),
+                    builder: (context,stream){
+                      if (stream.connectionState == ConnectionState.waiting) {
+                        return Center(child: CircularProgressIndicator());
+                      }
+
+                      if (stream.hasError) {
+                        return Center(child: Text(stream.error.toString()));
+                      }
+                      QuerySnapshot querySnapshot = stream.data;
+
+                      return SingleChildScrollView(
+                        child: Container(
+                          height: size.height,
+                          width: size.width,
+                          padding: EdgeInsets.only(bottom: size.height*0.1),
+                          child: ListView.builder(
+                            //padding: EdgeInsets.only(top: 5,bottom: 20),
+                              itemCount: querySnapshot.size,
+                              itemBuilder: (context,index){
+                                return Column(
+                                  children: [
+                                    SizedBox(height: size.height*0.005),
+                                    NewCard(size.width*0.97,size.height*0.2),
+                                    SizedBox(height: size.height*0.01),
+
+                                  ],
+                                );
+                              }
+                          ),
+                        ),
+                      );
+                    },
+                  ),
                 ),
-              ),
-            ),
           ],
         ),
     );

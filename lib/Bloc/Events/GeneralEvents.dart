@@ -29,3 +29,8 @@ class HistoryEvent extends GeneralEvents{
   List<Object> get props => [];
 
 }
+class ListProductsEvent extends GeneralEvents{
+  @override
+  List<Object> get props => [];
+
+}

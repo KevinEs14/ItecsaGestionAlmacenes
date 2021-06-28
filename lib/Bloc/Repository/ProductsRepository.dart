@@ -26,5 +26,5 @@ class ProductsRepository{
     }).then((value) => print(value.id));
   }
 
-  Future<void>clientList()async{}
+  Future<void>productsList()async{}
 }

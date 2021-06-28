@@ -30,6 +30,9 @@ class GeneralBloc extends Bloc<GeneralEvents,GeneralStates>{
 
     }else if(event is HistoryEvent){
 
+    }else if(event is ListProductsEvent){
+      yield LoadingPageState();
+
     }
   }
 
