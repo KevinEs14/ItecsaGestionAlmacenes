@@ -4,25 +4,30 @@ import 'package:equatable/equatable.dart';
 
 abstract class GeneralStates extends Equatable {}
 
-class LoginConfirmState extends GeneralStates {
+class MenuConfirmState extends GeneralStates {
   @override
   List<Object> get props => [];
 }
-class LoginNotConfirmState extends GeneralStates {
+class ClientsNotConfirmState extends GeneralStates {
   @override
   List<Object> get props => [];
 }
-class LoginWaitState extends GeneralStates {
+class PorductosNotConfirmState extends GeneralStates {
   @override
   List<Object> get props => [];
 }
-class LoadingState extends GeneralStates{
+class SelectionNotConfirmState extends GeneralStates{
   @override
-  List<Object> get props => throw UnimplementedError();
+  List<Object> get props => [];
 
 }
 class MenuPageState extends GeneralStates{
   @override
-  List<Object> get props => throw UnimplementedError();
+  List<Object> get props => [];
+
+}
+class LoadingPageState extends GeneralStates{
+  @override
+  List<Object> get props => [];
 
 }

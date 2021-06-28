@@ -131,7 +131,7 @@ class _LoginPageState extends State<LoginPage> {
                     borderRadius: BorderRadius.circular(36.0), color: color2),
                 child: FlatButton(
                   onPressed: () {
-                    print("busca entrar");
+                    // print("busca entrar");
                     BlocProvider.of<LoginBloc>(context).add(LoginTryEvent(_username.text,_password.text));
                     // Navigator.push(context, MaterialPageRoute(builder: (context)=>MenuPage()));
                     // _confirmUser.userName = _username.text;

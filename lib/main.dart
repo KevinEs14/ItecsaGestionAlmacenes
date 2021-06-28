@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:itecsa/Bloc/Bloc/LoginBloc.dart';
@@ -10,6 +11,7 @@ import 'package:itecsa/Pages/MenuPage.dart';
 import 'Pages/LoadingPage.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
@@ -41,4 +43,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 

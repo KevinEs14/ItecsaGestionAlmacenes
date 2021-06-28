@@ -15,9 +15,21 @@ class LoginBloc extends Bloc<LoginEvents,LoginStates>{
   @override
   Stream<LoginStates> mapEventToState(LoginEvents event) async*{
     if(event is LoginConfirmedEvent){
-      yield LoginNotConfirmState();
+      await _authRepository.verifyAccount();
+      if(_authRepository.response==1){
+        yield LoginConfirmState();
+      }else{
+        yield LoginNotConfirmState();
+      }
     }else if(event is LoginTryEvent){
       await _authRepository.getAccount(event.props[0], event.props[1]);
+      if(_authRepository.response==1){
+        yield LoginConfirmState();
+      }else{
+        yield LoginNotConfirmState();
+      }
+    }else if(event is LoginSingOutEvent){
+      await _authRepository.signOutAccount();
       if(_authRepository.response==1){
         yield LoginConfirmState();
       }else{

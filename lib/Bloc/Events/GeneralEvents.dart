@@ -1,20 +1,31 @@
 
 
 import 'package:equatable/equatable.dart';
+import 'package:itecsa/Models/Client.dart';
+import 'package:itecsa/Models/Product.dart';
 
 abstract class GeneralEvents extends Equatable {}
-class LoginConfirmedEvent extends GeneralEvents{
+class SelectProductsEvent extends GeneralEvents{
   @override
   List<Object> get props => throw UnimplementedError();
 
 }
-class LoginTryEvent extends GeneralEvents{
+class NewClientsEvent extends GeneralEvents{
+  Client _client;
+  NewClientsEvent(this._client);
+
   @override
-  List<Object> get props => throw UnimplementedError();
+  List<Object> get props => [_client];
 
 }
-class LoginSingOutEvent extends GeneralEvents{
+class NewProductsEvent extends GeneralEvents{
+  Product _product;
+  NewProductsEvent(this._product);
   @override
-  List<Object> get props => throw UnimplementedError();
+  List<Object> get props => [_product];
+}
+class HistoryEvent extends GeneralEvents{
+  @override
+  List<Object> get props => [];
 
 }
